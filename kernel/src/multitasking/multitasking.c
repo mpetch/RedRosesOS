@@ -8,38 +8,47 @@
 #include <drivers/keyboard.h>
 #include <stdbool.h>
 #include <a_tools/convert_to_int.h>
+#include <interrupts/pic.h>
 
 static Task *current_task;
 static Task main_task;
-static Task other_task;
-static Task other_task2;
+static Task main_task2;
+Task other_task;
+Task other_task2;
 extern void task_switch(uintptr_t *from_one, uintptr_t to_another);
+
+int pid = 1;
 
 void Eve(){ // main
     while(1){
         yield();
     }
 }
+void Adam(){ // main2
+    while(1){
+        yield();
+    }
+}
 
 void taskA() {
-    for(int i=0; i<10; i++){
+    while(1){
         fill_screen(red);
         yield();
     }
-    yield();
 }
-
 void taskB(){
-    for(int i=0; i<10; i++){
-        fill_screen(green);
+    while(1){
+        fill_screen(nice_red);
         yield();
     }
-    come_back();
 }
 
 void come_back(void){
-    task_switch(&current_task->rsp, main_task.rsp);
-    current_task = &main_task;
+    pid--;
+    task_create(&other_task, taskA);
+    task_create(&other_task2, taskB);
+    current_task = &main_task2;
+    yield();  
 }
 
 void quit() {
@@ -61,21 +70,22 @@ void task_create(Task *task, void (*main)()) {
     CPUState *state = task_stack + STACK_SIZE - sizeof(CPUState);
     
     state->rip = (uint64_t)main;
-    state->rflags = 0x202; 
-    
+    __asm__ volatile("pushfq; movq (%%rsp), %%rax; movq %%rax, %0; popfq;":"=m"(state->rflags):: "%rax");    
     task->rsp = (uintptr_t)state;
-    
-    sprint("\n\ntask created\n", green);
+    task->pid = pid;
+    pid++;
 }
 
 void multitasking_init(){
     task_create(&main_task, Eve);     
     task_create(&other_task, taskA);
     task_create(&other_task2, taskB);
+    task_create(&main_task2, Adam);
 
     main_task.next = &other_task;
     other_task.next = &other_task2;
     other_task2.next = &other_task;
+    main_task2.next = &main_task;
 
     current_task = &main_task;
 
@@ -84,5 +94,5 @@ void multitasking_init(){
 void yield() {
     Task *last = current_task;
     current_task = current_task->next;
-    task_switch(&last->rsp, current_task->rsp);   
+    task_switch(&last->rsp, current_task->rsp);
 }

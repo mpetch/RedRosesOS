@@ -95,27 +95,3 @@ void checkPlaySoundTimed(){
         sound_delay_seconds = 0;
     }
 }
-
-// WAIT FUNCTION IS CURRENTLY BROKEN
-// DO NOT RUN, WILL HANG THE SYSTEN UNTIL HARD RESET
-
-//void wait(int h_seconds) {
-//  int target_ticks = ticks + (h_seconds * 87);
- // char string_ticks[100];
- // char string_target_tick[100];
- // char string_h_seconds[100];
-//while (ticks < target_ticks){
-    // debug turn to string
-    //int_to_str(ticks, string_ticks);
-    //int_to_str(target_ticks, string_target_tick);
-    //int_to_str(h_seconds, string_h_seconds);
-    // debug print strings
-    //sprint(string_ticks, white);
-    //sprint(string_target_tick, blue);
-    //sprint(string_h_seconds, green);
-    //sprint("\n", white);
-    //enableInterrupts();
-  //};
-//}
-
-

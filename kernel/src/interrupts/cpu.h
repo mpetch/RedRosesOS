@@ -10,7 +10,6 @@ extern void enableInterrupts();
 extern void disableInterrupts();
 
 void panic(char* fmt, ...);
-extern void crash_me(void);
 
 static inline void halt(void) {
     __asm__ ("cli");

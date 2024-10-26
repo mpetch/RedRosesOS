@@ -18,6 +18,7 @@ typedef struct {
 typedef struct Task {
     struct Task* next;
     uintptr_t rsp;
+    int pid;
 } Task;
 void process_end(void);
 void task_create(Task *task, void (*main)());

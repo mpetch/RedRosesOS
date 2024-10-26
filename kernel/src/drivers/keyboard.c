@@ -14,6 +14,8 @@
 #include <c_programs/clear_and_print.h>
 #include <gui/mode.h>
 #include <multitasking/multitasking.h>
+#include <drivers/disk/fat.h>
+
 
 // SHELL JUNK. MOVE TO SHELL.C IN THE FUTURE
 
@@ -218,6 +220,7 @@ InterruptRegisters* keyboard_handler(InterruptRegisters* regs) {
                 if (shift_pressed && c == 44) c = 60; // <, ,
                 if (shift_pressed && c == 46) c = 62; // >, .
                 if (shift_pressed && c == 39) c = 34; // ", '
+                //if (c == 'h') createfile("    HELP", "TXT"); 
                 if (scancode != LSHIFT && scancode != 72) { // <-------- ^ < > keys
 				    if(mode == 1){
                         append(input_buffer, c);

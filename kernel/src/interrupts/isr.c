@@ -40,12 +40,8 @@ char* exception_messages[] = {
 };
 
 InterruptRegisters* ISR_handler(InterruptRegisters* regs) {
-    if (regs->interrupt > 15) {
+    if (regs->interrupt > 15 && regs->interrupt < 80) {
         sprint("an unhandled interrupt occured.", red);
-    } else if (regs->interrupt > 32) {
-		sprint("interrupt!", 0xffffff);
-        outb(0x60, 0);
     }
-
     return regs;
 }

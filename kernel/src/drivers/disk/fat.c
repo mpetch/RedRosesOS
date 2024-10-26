@@ -433,7 +433,7 @@ void Read_File_path(uint32_t root_dir_sector, const char* filepath) {
     sprint("\n", white);
 }
 
-uint32_t* Get_size(uint32_t root_dir_sector, const char* filepath) {
+uint32_t Get_size(uint32_t root_dir_sector, const char* filepath) {
     char components[16][12];
     int component_count = 0;
     split_path(filepath, components, &component_count);
@@ -1165,7 +1165,7 @@ char* readfile_into_buffer(const char* filename){
     Read_BPB_quiet(0);
     Read_File_path_INTO_BUFFER(root_dir_sector_public, filename);
 }
-uint32_t* get_file_size(const char* filename){
+uint32_t get_file_size(const char* filename){
     Read_BPB_quiet(0);
     Read_BPB_quiet(0);
     Read_BPB_quiet(0);

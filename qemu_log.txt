@@ -1,0 +1,12 @@
+ps2_keyboard_event 0x55a6d7711620 qcode 36 down 1 modifier 0x0 modifiers 0x0 set 2 xlate 1
+ps2_keyboard_event 0x55a6d7711620 qcode 36 down 0 modifier 0x0 modifiers 0x0 set 2 xlate 1
+ps2_keyboard_event 0x55a6d7711620 qcode 36 down 1 modifier 0x0 modifiers 0x0 set 2 xlate 1
+ps2_keyboard_event 0x55a6d7711620 qcode 36 down 0 modifier 0x0 modifiers 0x0 set 2 xlate 1
+ps2_keyboard_event 0x55a6d7711620 qcode 36 down 1 modifier 0x0 modifiers 0x0 set 2 xlate 1
+ps2_keyboard_event 0x55a6d7711620 qcode 36 down 0 modifier 0x0 modifiers 0x0 set 2 xlate 1
+ps2_keyboard_event 0x55a6d7711620 qcode 36 down 1 modifier 0x0 modifiers 0x0 set 2 xlate 1
+ps2_keyboard_event 0x55a6d7711620 qcode 36 down 0 modifier 0x0 modifiers 0x0 set 2 xlate 1
+ps2_keyboard_event 0x55a6d7711620 qcode 36 down 1 modifier 0x0 modifiers 0x0 set 2 xlate 1
+ps2_keyboard_event 0x55a6d7711620 qcode 36 down 0 modifier 0x0 modifiers 0x0 set 2 xlate 1
+ps2_keyboard_event 0x55a6d7711620 qcode 117 down 1 modifier 0x0 modifiers 0x0 set 2 xlate 1
+ps2_keyboard_event 0x55a6d7711620 qcode 117 down 0 modifier 0x0 modifiers 0x0 set 2 xlate 1
