@@ -17,6 +17,7 @@ extern int cursor_pos_y;
 extern int cursor_pos_x;
 size_t strlen(char* str);
 extern bool start_menu_active;
+void process_keys(void);
 extern void process_key(void);
 extern void keyboard_flush(void);
 #endif

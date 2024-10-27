@@ -109,7 +109,14 @@ bool caps_pressed;
 // deprecated behaviour. Should be ceased as soon as possible
 #define SC_MAX 			80
 
-// THE DRIVER PART WITH HANDLER
+// Process keys until buffer is emptied
+void process_keys(void) {
+    // Process scan codes until buffer is empty
+	while(!sc_isempty())
+		process_key();
+}
+
+// Process a single key
 void process_key(void) {
 	uint8_t scancode;
 

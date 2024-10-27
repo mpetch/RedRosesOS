@@ -33,7 +33,7 @@ void Adam(){ // main2
 
 void taskA() {
     while(1){
-        process_key();
+        process_keys();
         fill_screen(red);
         yield();
     }
