@@ -187,7 +187,7 @@ void _start(void) {
 
     // Main process loop
     while (true) {
-        // See if there is a key wiating to be processed
+        // See if there is a key waiting to be processed
         process_key();
         // Halt until the next interrupt occurs
         __asm__("hlt");
